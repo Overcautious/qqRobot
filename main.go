@@ -108,7 +108,7 @@ func atMessageEventHandler(event *dto.WSPayload, data *dto.WSATMessageData) erro
 		}
 		api.PostMessage(ctx, data.ChannelID, &dto.MessageToCreate{
 			MsgID:   data.ID,
-			Content: "今日累计签到人数：" + strconv.FormatInt(checkNums, 10) + " \n" + "最长连续打卡次数：" + strconv.FormatInt(int64(days), 10) + " \n" + "打卡冠军为：" + userList,
+			Content: "今日签到人数：" + strconv.FormatInt(checkNums, 10) + " \n" + "最长连续打卡次数：" + strconv.FormatInt(int64(days), 10) + " \n" + "打卡冠军为：" + userList,
 		})
 
 	default:
