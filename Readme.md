@@ -61,4 +61,7 @@ CmdDirectCovidInfo = "/私信疫情日报"
 
 # 其他
 扫描二维码加入我的频道：
-![img.png](img.png)
+![img.png](img.jpg)
+
+应用架构图：
+![img_1.png](架构图1.png)
