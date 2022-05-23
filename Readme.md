@@ -60,8 +60,10 @@ CmdDirectCovidInfo = "/私信疫情日报"
 使用api接口，请求疫情信息，并返回
 
 # 其他
+
 扫描二维码加入我的频道：
-![img.png](img.jpg)
+
+<img src="img.jpg" alt="Cover" width="50%"/>
 
 应用架构图：
 ![img_1.png](架构图1.png)
