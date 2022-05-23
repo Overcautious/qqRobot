@@ -66,4 +66,5 @@ CmdDirectCovidInfo = "/私信疫情日报"
 <img src="img.jpg" alt="Cover" width="50%"/>
 
 应用架构图：
+
 ![img_1.png](架构图1.png)
