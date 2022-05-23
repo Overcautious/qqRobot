@@ -7,6 +7,89 @@ import (
 	"github.com/tencent-connect/botgo/dto"
 )
 
+var defaultMsg []*dto.ArkObj
+
+func init() {
+	defaultMsg = []*dto.ArkObj{
+		{
+			[]*dto.ArkObjKV{
+				{
+					Key:   "desc",
+					Value: "小O暂时还不理解您的消息，可以试试其他消息噢，比如：",
+				},
+			},
+		},
+		{
+			[]*dto.ArkObjKV{
+				{
+					Key:   "desc",
+					Value: "/当前天气 北京",
+				},
+			},
+		},
+		{
+			[]*dto.ArkObjKV{
+				{
+					Key:   "desc",
+					Value: "/私信天气 深圳",
+				},
+			},
+		},
+		{
+			[]*dto.ArkObjKV{
+				{
+					Key:   "desc",
+					Value: "/打卡",
+				},
+			},
+		},
+		{
+			[]*dto.ArkObjKV{
+				{
+					Key:   "desc",
+					Value: "/打卡统计",
+				},
+			},
+		},
+		{
+			[]*dto.ArkObjKV{
+				{
+					Key:   "desc",
+					Value: "/疫情日报",
+				},
+			},
+		},
+		{
+			[]*dto.ArkObjKV{
+				{
+					Key:   "desc",
+					Value: "/私信疫情日报",
+				},
+			},
+		},
+	}
+}
+
+func getDefaultMsgArkForTemplate23() *dto.Ark {
+	return &dto.Ark{
+		TemplateID: 23,
+		KV: []*dto.ArkKV{
+			{
+				Key:   "#DESC#",
+				Value: "描述",
+			},
+			{
+				Key:   "#PROMPT#",
+				Value: "#PROMPT",
+			},
+			{
+				Key: "#LIST#",
+				Obj: defaultMsg,
+			},
+		},
+	}
+}
+
 // 创建23号当Ark
 func createArkForTemplate23(resp tools.ToolsResp) *dto.Ark {
 	return &dto.Ark{

@@ -47,6 +47,12 @@ func atMessageEventHandler(event *dto.WSPayload, data *dto.WSATMessageData) erro
 	content := res.Content //content 为 城市名
 	switch cmd {
 	case CmdNowWeather: //获取当前天气 指令是 /天气 城市名
+		if len(content) == 0 {
+			api.PostMessage(ctx, data.ChannelID, &dto.MessageToCreate{
+				MsgID:   data.ID,
+				Content: "请输入查询天气城市",
+			})
+		}
 		webData := tools.GetWeatherByCity(content)
 		if webData != nil {
 			//MsgID 表示这条消息的触发来源，如果为空字符串表示主动消息
@@ -112,7 +118,8 @@ func atMessageEventHandler(event *dto.WSPayload, data *dto.WSATMessageData) erro
 		})
 
 	default:
-		api.PostMessage(ctx, data.ChannelID, &dto.MessageToCreate{MsgID: data.ID, Content: "试试其他消息噢"})
+		api.PostMessage(ctx, data.ChannelID, &dto.MessageToCreate{MsgID: data.ID, Ark: getDefaultMsgArkForTemplate23()})
+
 	}
 	return nil
 }
